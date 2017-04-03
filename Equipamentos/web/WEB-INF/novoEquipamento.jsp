@@ -7,7 +7,8 @@
     </head>
     <body>
         <h1>Novo Equipamento!</h1>
-        <p><a href="lista.html">Lista...</a></p>
+        <p><a href="lista.html">Lista...</a>
+            <a href="pesquisa.html">Pesquisa...</a></p>
         <form action="novo.html" method="POST">
             <p><label>Série : </label><input type="text" name="txtSerie" value="" size="50" /></p>
             <p><label>Local : </label><input type="text" name="txtLocal" value="" size="50" /></p>

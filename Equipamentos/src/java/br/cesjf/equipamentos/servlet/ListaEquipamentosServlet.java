@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Paulo
  */
 @WebServlet(name = "ListaEquipamentos", urlPatterns = {"/lista.html"})
-public class ListaEquipamentos extends HttpServlet {
+public class ListaEquipamentosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +32,7 @@ public class ListaEquipamentos extends HttpServlet {
             lstEquipamentos = EquipamentoDAO.listarEquipamentos();
         
         } catch (Exception ex) {
-            Logger.getLogger(ListaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListaEquipamentosServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         request.setAttribute("equipamentos", lstEquipamentos);

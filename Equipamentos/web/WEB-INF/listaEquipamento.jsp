@@ -1,5 +1,5 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
@@ -8,7 +8,8 @@
     </head>
     <body>
         <h1>Lista de Equipamentos!</h1>
-        <a href="novo.html">Novo...</a>
+        <p><a href="novo.html">Novo...</a>
+            <a href="pesquisa.html">Pesquisa...</a></p>
         <table>
             <tr>
                 <th>Id</th>

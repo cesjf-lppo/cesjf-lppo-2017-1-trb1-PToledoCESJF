@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Paulo
  */
 @WebServlet(name = "NovoEquipamento", urlPatterns = {"/novo.html"})
-public class NovoEquipamento extends HttpServlet {
+public class NovoEquipamentoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +41,7 @@ public class NovoEquipamento extends HttpServlet {
             EquipamentoDAO.novoEquipamento(equipamento);
 
         } catch (Exception ex) {
-            Logger.getLogger(NovoEquipamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NovoEquipamentoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         response.sendRedirect("novo.html");

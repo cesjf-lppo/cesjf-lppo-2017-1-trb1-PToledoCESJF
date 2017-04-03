@@ -75,6 +75,7 @@ public class EquipamentoDAO {
 
         List<Equipamento> lstEquipamento = null;
         if (abrirConexao()) {
+            
             lstEquipamento = new ArrayList<>();
 
             resultado = operacao.executeQuery("SELECT * FROM equipamento ORDER BY local");
@@ -90,5 +91,24 @@ public class EquipamentoDAO {
             }
         }
         return lstEquipamento;
+    }
+    
+    public static List<Equipamento> pesquisaEquipamento(int estado) throws ClassNotFoundException, SQLException{
+        
+        List<Equipamento> lstEquipamentos = new ArrayList<>();
+        if(abrirConexao()){
+            
+            resultado = operacao.executeQuery("SELECT * FROM equipamento WHERE estado=" + estado);
+            while(resultado.next()){
+                Equipamento equipamentoAtual = new Equipamento();
+                equipamentoAtual.setId(resultado.getLong("id"));
+                equipamentoAtual.setSerie(resultado.getString("serie"));
+                equipamentoAtual.setLocal(resultado.getString("local"));
+                equipamentoAtual.setDescricao(resultado.getString("descricao"));
+                equipamentoAtual.setEstado(resultado.getInt("estado"));
+                lstEquipamentos.add(equipamentoAtual);
+            }
+        }
+        return lstEquipamentos;
     }
 }
