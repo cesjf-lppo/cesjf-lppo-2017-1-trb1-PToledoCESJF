@@ -27,7 +27,7 @@ public class PesquisaEquipamentosServlet extends HttpServlet {
             throws ServletException, IOException {
 
         List<Equipamento> lstEquipamentos = new ArrayList<>();
-        int estadoPesquisa = Integer.parseInt(request.getParameter("rdEstado"));
+        String estadoPesquisa = request.getParameter("ddnEstado");
         
         try {
             
@@ -38,6 +38,7 @@ public class PesquisaEquipamentosServlet extends HttpServlet {
         }
         
         request.setAttribute("equipamentos", lstEquipamentos);
+        request.setAttribute("ddnEstado", estadoPesquisa);
         request.getRequestDispatcher("WEB-INF/pesquisaEquipamento.jsp").forward(request, response);
     }
 
@@ -45,7 +46,6 @@ public class PesquisaEquipamentosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         
         response.sendRedirect("pesquisa.html");
     }

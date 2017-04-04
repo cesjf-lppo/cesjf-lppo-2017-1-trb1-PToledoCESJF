@@ -18,19 +18,6 @@ public class EquipamentoDAO {
     private static Statement operacao;
     private static ResultSet resultado;
 
-    /*
-    public EquipamentoDAO() throws ClassNotFoundException, SQLException {
-        
-        if(conexao == null){
-            String url = "jdbc:derby://localhost:1527/lppo-2017-1";
-            
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            conexao = DriverManager.getConnection(url, "usuario", "senha");
-            
-            operacao = conexao.createStatement();
-        }
-    }
-     */
     public static boolean abrirConexao() throws ClassNotFoundException, SQLException {
 
         boolean aberto = true;
@@ -93,12 +80,12 @@ public class EquipamentoDAO {
         return lstEquipamento;
     }
     
-    public static List<Equipamento> pesquisaEquipamento(int estado) throws ClassNotFoundException, SQLException{
+    public static List<Equipamento> pesquisaEquipamento(String filtro) throws ClassNotFoundException, SQLException{
         
         List<Equipamento> lstEquipamentos = new ArrayList<>();
         if(abrirConexao()){
-            
-            resultado = operacao.executeQuery("SELECT * FROM equipamento WHERE estado=" + estado);
+                        
+            resultado = operacao.executeQuery("SELECT * FROM equipamento WHERE estado=" + filtro);
             while(resultado.next()){
                 Equipamento equipamentoAtual = new Equipamento();
                 equipamentoAtual.setId(resultado.getLong("id"));

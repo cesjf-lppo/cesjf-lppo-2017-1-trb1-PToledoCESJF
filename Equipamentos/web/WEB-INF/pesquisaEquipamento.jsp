@@ -10,6 +10,15 @@
         <h1>Pesquisa Equipamentos!</h1>
         <p><a href="novo.html">Novo...</a>
             <a href="lista.html">Lista...</a></p>
+        <form action="pesquisa.html" method="GET">
+            <select name="ddnEstado">
+                <option value="0" ${ddnEstado==0?"selected":""}>novo</option>
+                <option value="1" ${ddnEstado==1?"selected":""}>em uso</option>
+                <option value="2" ${ddnEstado==2?"selected":""}>danificado</option>
+                <option value="3" ${ddnEstado==3?"selected":""}>perdido</option>
+                <input type="submit" value="Filtrar" />
+            </select>
+        </form>
         <table>
             <tr>
                 <th>Id</th>
@@ -28,10 +37,5 @@
                 </tr>
             </c:forEach>
         </table>
-        <input type="radio" name="rdEstado" value="0" checked="checked" />Novo<br>
-        <input type="radio" name="rdEstado" value="1" />Em uso <br>
-        <input type="radio" name="rdEstado" value="2" />Danificado<br>
-        <input type="radio" name="rdEstado" value="3" />Perdido<br>
-
     </body>
 </html>
