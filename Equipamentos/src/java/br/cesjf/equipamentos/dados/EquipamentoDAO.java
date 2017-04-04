@@ -98,4 +98,10 @@ public class EquipamentoDAO {
         }
         return lstEquipamentos;
     }
+    
+    public static void editarEquipamento(int id, String local, int estado) throws SQLException{
+        
+        operacao.executeUpdate("UPDATE equipamento SET local= '"
+                + local +"' estado=" + estado + "WHER id=" +id);
+    }
 }

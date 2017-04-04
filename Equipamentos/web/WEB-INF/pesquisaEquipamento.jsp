@@ -34,6 +34,7 @@
                     <td>${equipamentos.local}</td>
                     <td>${equipamentos.descricao}</td>
                     <td>${equipamentos.estado}</td>
+                    <td><a href="edita.html?id=${equipamentos.id}">Editar</a></td>
                 </tr>
             </c:forEach>
         </table>
