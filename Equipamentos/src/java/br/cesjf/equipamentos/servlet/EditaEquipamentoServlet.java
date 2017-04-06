@@ -1,7 +1,11 @@
 package br.cesjf.equipamentos.servlet;
 
+import br.cesjf.equipamentos.dados.Equipamento;
+import br.cesjf.equipamentos.dados.EquipamentoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +23,17 @@ public class EditaEquipamentoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        Equipamento equipamento = new Equipamento();
+        int id = Integer.parseInt(request.getParameter("id"));
         
+        try {
+            equipamento = EquipamentoDAO.pesquisaEquipamentoId(id);
+        } catch (Exception ex) {
+            Logger.getLogger(EditaEquipamentoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        request.setAttribute("equipamentoEdt", equipamento);
+        request.getRequestDispatcher("WEB-INF/editaEquipamento.jsp").forward(request, response);
     }
 
     @Override
@@ -32,6 +46,15 @@ public class EditaEquipamentoServlet extends HttpServlet {
         String estado = request.getParameter("txtLocal");
         int local = Integer.parseInt(request.getParameter("ddnEstado"));
         
+        try {
+        
+            EquipamentoDAO.editarEquipamento(id, estado, local);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(EditaEquipamentoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        response.sendRedirect("lista.html");
     }
 
 

@@ -31,7 +31,7 @@ public class PesquisaEquipamentosServlet extends HttpServlet {
         
         try {
             
-            lstEquipamentos = EquipamentoDAO.pesquisaEquipamento(estadoPesquisa);
+            lstEquipamentos = EquipamentoDAO.pesquisaEquipamentoEstado(estadoPesquisa);
         
         } catch (Exception ex) {
             Logger.getLogger(PesquisaEquipamentosServlet.class.getName()).log(Level.SEVERE, null, ex);

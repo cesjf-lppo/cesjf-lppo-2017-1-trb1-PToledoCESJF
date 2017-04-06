@@ -80,7 +80,7 @@ public class EquipamentoDAO {
         return lstEquipamento;
     }
     
-    public static List<Equipamento> pesquisaEquipamento(String filtro) throws ClassNotFoundException, SQLException{
+    public static List<Equipamento> pesquisaEquipamentoEstado(String filtro) throws ClassNotFoundException, SQLException{
         
         List<Equipamento> lstEquipamentos = new ArrayList<>();
         if(abrirConexao()){
@@ -99,9 +99,30 @@ public class EquipamentoDAO {
         return lstEquipamentos;
     }
     
+    public static Equipamento pesquisaEquipamentoId(int filtro) throws ClassNotFoundException, SQLException{
+        
+        Equipamento equipamento = new Equipamento();
+        if(abrirConexao()){
+                        
+            resultado = operacao.executeQuery("SELECT * FROM equipamento WHERE id=" + filtro);
+            if(resultado.next()){
+                equipamento.setId(resultado.getLong("id"));
+                equipamento.setSerie(resultado.getString("serie"));
+                equipamento.setLocal(resultado.getString("local"));
+                equipamento.setDescricao(resultado.getString("descricao"));
+                equipamento.setEstado(resultado.getInt("estado"));
+            }
+        }
+        return equipamento;
+    }
+    
     public static void editarEquipamento(int id, String local, int estado) throws SQLException{
         
         operacao.executeUpdate("UPDATE equipamento SET local= '"
-                + local +"' estado=" + estado + "WHER id=" +id);
+                + local +"', estado= " + estado + " WHERE id=" +id);
+    }
+    
+    public static void excluirEquipamento(int id){
+        
     }
 }
