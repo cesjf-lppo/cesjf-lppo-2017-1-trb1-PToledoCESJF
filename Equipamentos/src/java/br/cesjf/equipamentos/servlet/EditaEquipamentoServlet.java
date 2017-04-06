@@ -50,7 +50,7 @@ public class EditaEquipamentoServlet extends HttpServlet {
         
             EquipamentoDAO.editarEquipamento(id, estado, local);
         
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(EditaEquipamentoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         

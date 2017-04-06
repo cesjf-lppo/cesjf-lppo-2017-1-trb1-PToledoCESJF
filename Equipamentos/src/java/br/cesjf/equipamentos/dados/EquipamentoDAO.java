@@ -116,13 +116,20 @@ public class EquipamentoDAO {
         return equipamento;
     }
     
-    public static void editarEquipamento(int id, String local, int estado) throws SQLException{
-        
-        operacao.executeUpdate("UPDATE equipamento SET local= '"
-                + local +"', estado= " + estado + " WHERE id=" +id);
+    public static void editarEquipamento(int id, String local, int estado) throws SQLException, ClassNotFoundException{
+        if(abrirConexao()){
+            
+            operacao.executeUpdate("UPDATE equipamento SET local= '"
+                    + local +"', estado= " + estado + " WHERE id=" +id);
+
+        }
     }
     
-    public static void excluirEquipamento(int id){
-        
+    public static void excluirEquipamento(int id) throws ClassNotFoundException, SQLException{
+        if(abrirConexao()){
+            
+            operacao.executeUpdate("DELETE FROM equipamento WHERE id=" +id);
+            
+        }
     }
 }
