@@ -27,19 +27,21 @@ public class PesquisaEquipamentosServlet extends HttpServlet {
             throws ServletException, IOException {
 
         List<Equipamento> lstEquipamentos = new ArrayList<>();
-        String estadoPesquisa = request.getParameter("ddnEstado");
+        int estadoPesquisa = Integer.parseInt(request.getParameter("ddnEstado"));
         
         try {
-            
-            lstEquipamentos = EquipamentoDAO.pesquisaEquipamentoEstado(estadoPesquisa);
-        
+            if(estadoPesquisa == 9){
+                lstEquipamentos = EquipamentoDAO.listarEquipamentos();
+            }else{
+                lstEquipamentos = EquipamentoDAO.pesquisaEquipamentoEstado(estadoPesquisa);
+            }
         } catch (Exception ex) {
             Logger.getLogger(PesquisaEquipamentosServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         request.setAttribute("equipamentos", lstEquipamentos);
         request.setAttribute("ddnEstado", estadoPesquisa);
-        request.getRequestDispatcher("WEB-INF/pesquisaEquipamento.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/listaEquipamento.jsp").forward(request, response);
     }
 
 
@@ -47,7 +49,7 @@ public class PesquisaEquipamentosServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        response.sendRedirect("pesquisa.html");
+        response.sendRedirect("lista.html");
     }
 
 }

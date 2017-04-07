@@ -80,7 +80,7 @@ public class EquipamentoDAO {
         return lstEquipamento;
     }
     
-    public static List<Equipamento> pesquisaEquipamentoEstado(String filtro) throws ClassNotFoundException, SQLException{
+    public static List<Equipamento> pesquisaEquipamentoEstado(int filtro) throws ClassNotFoundException, SQLException{
         
         List<Equipamento> lstEquipamentos = new ArrayList<>();
         if(abrirConexao()){

@@ -1,0 +1,92 @@
+*{
+        margin: 0 0 0 0;
+        font-family: Tahoma;
+    }
+
+    #main{
+        width: 100%;
+    }
+    #topo{
+        width: 96%;
+        height: 40px;
+        background-color: #1E90FF;
+        padding-top: 20px;
+        padding-left: 4%;
+        color: #FFFAFA;
+    }
+
+    #titulo{
+        width: 28%;
+        height: 50px;
+        float: left;
+        line-height: 20px;
+    }
+
+    a{
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    #corpo{
+        left: 10%;
+        width: 100%;
+        position: absolute;
+    }
+
+    #links{
+        width: 50%;
+        line-height: 40px;
+        font-weight: bold;
+    }
+
+    #busca{
+        margin-top: 10px;
+        width: 70%;
+    }
+
+    #novo{
+       margin-top: 10px;
+       width: 70%;
+    }
+    
+    table{
+        margin-top: 60px;
+        text-align: center;
+        width: 80%;
+        border: solid 2px #c0c0c0;
+    }
+
+    td{
+        background-color: #99CCFF;
+    }
+
+    th{
+        background-color: #0000FF;
+        color: #FFFAFA;
+    }
+        
+    input, textArea{
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 5px;
+    }
+    
+    select{
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 5px;
+        background-color: #FFFFFF;
+        background-repeat: no-repeat;
+        background-position: left;
+        font-size: 14px;
+        width: 25%;
+        height: 40px;
+        border: solid 2px #c0c0c0;
+    }
+
+    label{
+        text-align: right;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    
